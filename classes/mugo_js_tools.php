@@ -21,7 +21,7 @@ class MugoJSTools
         return array(
             'mjs_console_log' => array(
                 'logContent' => array(
-                    'required' => true,
+                    'required' => false,
                     'default' => ''
                 )
             )
