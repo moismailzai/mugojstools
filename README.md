@@ -51,4 +51,4 @@ Contributors
 
 License
 =======
-MIT License. Copyright (C) 2016 [Mugo Web](http;//www.mugo.ca).
+MIT License. Copyright (C) 2016 [Mugo Web](http://www.mugo.ca).
