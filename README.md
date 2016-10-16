@@ -11,6 +11,8 @@ Included Operators & Usage
 ==========================
 ### {mjs_console_log()}
 
+> #### This operator generates a JavaScript console.log() dump in the browser console.
+> 
 > You can pass (or pipe) a string  
 >```php
 >
