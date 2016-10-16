@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <dependencies>
+        <extends>
+            <extension name="mugojstools" />
+        </extends>
+    </dependencies>
+    <metadata>
+        <name>&lt;a href="http://www.mugo.ca"&gt;Mugo JS Tools&lt;/a&gt;</name>
+        <version>0.1</version>
+        <copyright>Copyright (C) 2016 &lt;a href="http://www.mugo.ca"&gt;Mugo Web&lt;/a&gt;</copyright>
+        <license>MIT License</license>
+    </metadata>
+</software>
