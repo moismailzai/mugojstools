@@ -106,7 +106,7 @@ class MugoJSTools
         $jsonLogContent = json_encode($logContent, JSON_NUMERIC_CHECK, 512);
         $nodeEncoded = "";
         if (is_object($logContent)) {
-            if (isset($logContent->NodeID)) {
+            if (is_object($logContent) AND (is_a($logContent, "eZContentObjectTreeNode"))) {
                 $nodeEncoded    = ", \"node{$logContent->NodeID}\":" . ezjscAjaxContent::nodeEncode($logContent, array(
                         'dataMap'               => array('all'),
                         'fetchPath'             => true,
