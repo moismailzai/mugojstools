@@ -48,6 +48,7 @@ Included Operators & Usage
 Contributors
 ============
 * Mo Ismailzai ([mo@mugo.ca](mailto:mo@mugo.ca))
+* Ernesto Buenrostro ([ernesto@mugo.ca](mailto:ernesto@mugo.ca))
 
 License
 =======
