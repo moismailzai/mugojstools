@@ -103,7 +103,7 @@ class MugoJSTools
      */
     function mjs_console_log( $logContent)
     {
-        $jsonLogContent = json_encode($logContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK, 512);
+        $jsonLogContent = json_encode($logContent, JSON_NUMERIC_CHECK, 512);
         $nodeEncoded = "";
         if (is_object($logContent)) {
             if (isset($logContent->NodeID)) {
