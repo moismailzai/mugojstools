@@ -44,38 +44,37 @@ class MugoJSTools
 
     function mjs_console_log( $logContent)
     {
+        $jsonLogContent = json_encode($logContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK, 512);
+        $nodeEncoded = "";
         if (is_object($logContent)) {
-            ?>
-
-            <!--- mjs_console_log output start -->
-            <script>
-                console.log({
-                    "object<?php echo $logContent->ContentObjectID ?>": <?php echo json_encode($logContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK, 512);
-                    if (isset($logContent->NodeID)) { ?>,
-                    "node<?php echo $logContent->NodeID ?>": <?php echo ezjscAjaxContent::nodeEncode($logContent, array(
-                    'dataMap' => array('all'),
-                    'fetchPath' => true,
-                    'fetchChildrenCount' => true,
-                    'dataMapType' => array('all'),
-                    'ImagePreGenerateSizes' => array('all')
-                ));
-                    } ?>
-                });
-            </script>
-            <!--- mjs_console_log output end -->
-            <?php
+            if (isset($logContent->NodeID)) {
+                $nodeEncoded    = ", \"node{$logContent->NodeID}\":" . ezjscAjaxContent::nodeEncode($logContent, array(
+                        'dataMap'               => array('all'),
+                        'fetchPath'             => true,
+                        'fetchChildrenCount'    => true,
+                        'dataMapType'           => array('all'),
+                        'ImagePreGenerateSizes' => array('all')
+                    ));
+            }
+            $scriptTag = <<<EOS
+               <!--- mjs_console_log output start -->
+               <script>
+                   console.log({
+                       "object{$logContent->ContentObjectID}": {$jsonLogContent} {$nodeEncoded}
+                   });
+               </script>
+               <!--- mjs_console_log output end --> 
+EOS;
         } else {
-            ?>
-
-            <!--- mjs_console_log output start -->
-            <script>
-                console.log(
-                    <?php echo json_encode($logContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK, 512); ?>
-                );
-            </script>
-            <!--- mjs_console_log output end -->
-            <?php
+            $scriptTag = <<<EOS
+               <!--- mjs_console_log output start -->
+               <script>
+                   console.log({$jsonLogContent});
+               </script>
+               <!--- mjs_console_log output end --> 
+EOS;
         }
+        return $scriptTag;
     }
     private $Operators;
 }
