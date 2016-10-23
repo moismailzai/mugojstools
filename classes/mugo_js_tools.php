@@ -78,4 +78,3 @@ EOS;
     }
     private $Operators;
 }
-?>
