@@ -11,39 +11,35 @@ Included Operators & Usage
 ==========================
 ### {mjs_console_log()}
 
-> #### This operator generates a JavaScript console.log() dump in the browser console.
-> 
-> You can pass (or pipe) a string  
->```php
->
->{mjs_console_log("Foo!")}
->
->```
-> a variable,  
->```php
->
->{def $foo="Bar!"}   
->{mjs_console_log($foo)}   
->
->```
->
-> an object, 
-> ```php
->
->{def $foo=fetch( 'user', 'current_user' )}
->{mjs_console_log($foo)}
->
->```
-> or a node (complete with data_map):   
->```php
->
->{def $foo = fetch( 'content', 'node', hash(   
->    'node_id', 123   
->))}   
->{mjs_console_log($foo)}   
->
->```
+#### This operator generates a JavaScript console.log() dump in the browser console. Requires [ezjscore](https://github.com/ezsystems/ezjscore).
 
+##### Screenshots:   
+![mjs_console_log object example](.mjs_obj_example.png)   
+
+![mjs_console_log node example](.mjs_node_example.png)
+
+##### Usage:   
+You can pass (or pipe) a string
+```php
+{mjs_console_log("Foo!")}
+```
+a variable,
+```php
+{def $foo="Bar!"}
+{mjs_console_log($foo)}
+```
+ a hash or object,
+```php
+{def $foo=fetch( 'user', 'current_user' )}
+{mjs_console_log($foo)}
+```
+or a node (complete with data_map):
+```php
+{def $foo = fetch( 'content', 'node', hash(
+    'node_id', 123
+))}
+{mjs_console_log($foo)}
+```
 
 Contributors
 ============
