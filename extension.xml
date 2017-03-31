@@ -2,7 +2,7 @@
 <software>
     <dependencies>
         <extends>
-            <extension name="mugojstools" />
+            <extension name="ezjscore" />
         </extends>
     </dependencies>
     <metadata>
